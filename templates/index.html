@@ -1,0 +1,29 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Home | Steam Review Scraping{% endblock %}
+
+{% block content %}
+<div class="container" style="min-height: 100vh;">
+    <div class="page-header">
+        <h1>Steam Review Scraping</h1>
+        <p>Steamにて配信されているゲームのゲームIDを入力することで、<br />ユーザーレビューとプレイ時間の一覧をExcelファイルで取得できます。</p>
+    </div>
+    <div id="main" style="max-width: 960px;">
+        <form action="/download" method="post">
+            <div id="form-group" style="margin-bottom: 1.25rem;">
+                <label for="game_id">ゲームID</label>
+                <input type="text" class="form-control" id="game_id" name="gameid" placeholder="ex.) 945360">
+                <small id="help" class="form-text text-muted">ゲームIDは<a href="https://steamdb.info/" target="_blank">こちら</a>から検索できます。(App ID)</small><br />
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                <button type="submit" class="btn btn-primary" style="margin-bottom: 0.25rem;">ダウンロード</button>
+                <small id="help_2" class="form-text text-muted" style="">レビューの件数が多いゲームの場合、ダウンロードまでに時間が掛かります。ご了承ください。</small>
+            </div>
+        </form>
+        <div class="page-footer" style="text-align: center; margin-top: auto;">
+            <hr>
+            <p style="color: #777;">©2022 Genki</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
