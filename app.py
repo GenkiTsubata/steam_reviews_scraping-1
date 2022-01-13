@@ -201,7 +201,7 @@ def word_cloud_download():
                 buffered.getvalue(),
                 mimetype='image/png',
                 headers={'Content-disposition':
-                         'attachment; filename=wordcloud_{}.jpg'.format(game_id)}
+                         'attachment; filename=wordcloud_{}.png'.format(game_id)}
             )
         else:
             # POST以外が送信された場合のハンドリング
