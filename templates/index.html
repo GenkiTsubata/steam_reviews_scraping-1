@@ -6,17 +6,18 @@
 <div class="container" style="min-height: 100vh;">
     <div class="page-header">
         <h1>Steam Review Scraping</h1>
-        <p>Steamにて配信されているゲームのゲームIDを入力することで、<br />ユーザーレビューとプレイ時間の一覧をExcelファイルで取得できます。</p>
+        <p>Steamにて配信されているゲームのゲームIDを入力することで、<br />レビューリストとワードクラウドの画像データを取得できます。</p>
     </div>
     <div id="main" style="max-width: 960px;">
-        <form action="/download" method="post">
+        <form>
             <div id="form-group" style="margin-bottom: 1.25rem;">
                 <label for="game_id">ゲームID</label>
                 <input type="text" class="form-control" id="game_id" name="gameid" placeholder="ex.) 945360">
                 <small id="help" class="form-text text-muted">ゲームIDは<a href="https://steamdb.info/" target="_blank">こちら</a>から検索できます。(App ID)</small><br />
             </div>
             <div style="display: flex; flex-direction: column; justify-content: center;">
-                <button type="submit" class="btn btn-primary" style="margin-bottom: 0.25rem;">ダウンロード</button>
+                <button type="submit" class="btn btn-primary" style="margin-bottom: 0.25rem;" formaction="/download_excel" formmethod="post">Excelファイルをダウンロード</button>
+                <button type="submit" class="btn btn-success" style="margin-bottom: 0.25rem;" formaction="/download_wordcloud" formmethod="post">ワードクラウドをダウンロード</button>
                 <small id="help_2" class="form-text text-muted" style="">レビューの件数が多いゲームの場合、ダウンロードまでに時間が掛かります。ご了承ください。</small>
             </div>
         </form>
